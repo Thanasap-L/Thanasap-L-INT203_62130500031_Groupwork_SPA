@@ -1,0 +1,231 @@
+{
+    "guitarList": [
+        {
+            "gen": "Player Stratocaster",
+            "brand": "Fender",
+            "type": "Stratocaster",
+            "price": 23400,
+            "color": [
+                "3 Tone Sun Burst",
+                "Black",
+                "Tidepool",
+                "Polar White",
+                "Butter Cream",
+                "Capri Orange"
+            ],
+            "bonus": null,
+            "category": "Player",
+            "status": true,
+            "id": 1
+        },
+        {
+            "gen": "Player Stratocaster HSS",
+            "brand": "Fender",
+            "type": "Stratocaster",
+            "price": 23400,
+            "color": [
+                "Maple, 3-Color Sunburst",
+                "Maple, Black",
+                "Maple, Buttercream",
+                "Maple, Tidepool",
+                "Maple, Polor White",
+                "Pau Ferro, 3-Color Sunburst",
+                "Pau Ferro, Black",
+                "Pau Ferro, Polor White",
+                "Pau Ferro, Sage Green Metallic",
+                "Pau Ferro, Sonic Red"
+            ],
+            "bonus": null,
+            "category": "Player",
+            "status": true,
+            "id": 2
+        },
+        {
+            "gen": "American Pro Jazzmaster",
+            "brand": "Fender",
+            "type": "Stratocaster",
+            "price": 57150,
+            "color": "3 Tone Sun Burst",
+            "bonus": null,
+            "category": "American Professional",
+            "status": true,
+            "id": 3
+        },
+        {
+            "gen": "Les Paul Modern",
+            "brand": "Gibson",
+            "type": "Les Paul",
+            "price": 90000,
+            "color": [
+                "Sparkling Burgundy Top",
+                "Graphite Top"
+            ],
+            "bonus": null,
+            "category": "Les Paul",
+            "status": true,
+            "id": 4
+        },
+        {
+            "gen": "SG Faded 2017 T",
+            "brand": "Gibson",
+            "type": "SG",
+            "price": 29700,
+            "color": [
+                "Worn Brown",
+                "Worn Cherry"
+            ],
+            "bonus": "Gig Bag",
+            "category": "SG",
+            "status": true,
+            "id": 5
+        },
+        {
+            "gen": "Les Paul Signature Player Plus 2018",
+            "brand": "Gibson",
+            "type": "Les Paul",
+            "price": 66600,
+            "color": [
+                "Ocean Blue",
+                "Wine Red"
+            ],
+            "bonus": "",
+            "category": "Les Pual",
+            "status": true,
+            "id": 6
+        },
+        {
+            "gen": "Les Paul Standard 60s",
+            "brand": "Epiphone",
+            "type": "Les Paul",
+            "price": 20700,
+            "color": [
+                "Ebony",
+                "GBourbon Burst",
+                "Iced Tea"
+            ],
+            "bonus": null,
+            "category": "Les Paul",
+            "status": true,
+            "id": 7
+        },
+        {
+            "gen": "Les Paul Muse",
+            "brand": "Epiphone",
+            "type": "Les Paul",
+            "price": 17100,
+            "color": [
+                "Pearl White Metallic",
+                "Wanderlust Metallic Green",
+                "Radio Blue Metallic",
+                "Purple Passion Metallic",
+                "Jet Black Metallic",
+                "Scarlet Red Metallic",
+                "Smoked Almond Metallic"
+            ],
+            "bonus": "",
+            "category": "Les Paul",
+            "status": true,
+            "id": 8
+        },
+        {
+            "gen": "Slash AFD LP SPCL II Pack",
+            "brand": "Epiphone",
+            "type": "Les Paul",
+            "price": 11700,
+            "color": "Yellow",
+            "bonus": [
+                "Guitar Bag",
+                "Guitar Pick",
+                "Jack cable",
+                "Sash",
+                "Amp"
+            ],
+            "category": "Les Paul",
+            "status": true,
+            "id": 9
+        },
+        {
+            "gen": "Bullet Strat HSS",
+            "brand": "Squier",
+            "type": "Stratocaster ",
+            "price": 6120,
+            "color": [
+                "Brown Sunburst",
+                "Black",
+                "Arctic White"
+            ],
+            "bonus": null,
+            "category": "Bullet",
+            "status": true,
+            "id": 10
+        },
+        {
+            "gen": "Affinity Stratocaster RW",
+            "brand": "Squier",
+            "type": "Stratocaster ",
+            "price": 8280,
+            "color": [
+                "Surf Green",
+                "Black",
+                "2 Tone Sunburst",
+                "Slick Silver",
+                "Race Red",
+                "Competition Orange"
+            ],
+            "bonus": null,
+            "category": "Affinity",
+            "status": true,
+            "id": 11
+        },
+        {
+            "gen": "Bullet Strat",
+            "brand": "Squier",
+            "type": "Stratocaster ",
+            "price": 6120,
+            "color": [
+                "Black",
+                "Sunburst",
+                "Sonic Grey",
+                "White",
+                "Tropical Turquoise"
+            ],
+            "bonus": null,
+            "category": "Bullet",
+            "status": true,
+            "id": 12
+        },
+        {
+            "gen": "ERG121U",
+            "brand": "Yamaha",
+            "type": "Stratocaster ",
+            "price": 6200,
+            "color": "Black",
+            "bonus": "Black Guitar Bag",
+            "category": "Yamaha",
+            "status": true,
+            "id": 13
+        },
+        {
+            "gen": "Pacifica112J",
+            "brand": "Yamaha",
+            "type": "Stratocaster ",
+            "price": 8400,
+            "color": "Yellow Natural",
+            "bonus": null,
+            "category": "Yamaha",
+            "status": true,
+            "id": 14
+        },
+        {
+            "gen": "PACIFICA012",
+            "brand": "Yamaha",
+            "type": "Stratocaster ",
+            "price": 6200,
+            "color": ["Black", "Red Mettallic"],
+            "bonus": null,
+            "category": "Yamaha",
+            "status": true,
+            "id": 15
+        }
+    ]
+}
