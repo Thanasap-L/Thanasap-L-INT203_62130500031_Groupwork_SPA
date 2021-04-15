@@ -1,16 +1,28 @@
 <template>
-  <div class="flex flex-wrap w-full bg-black">
-    <div class="mx-auto font-bold text-5xl py-1 text-white">
-      <router-link to="/">Music Time</router-link>
+  <div class="navBar">
+    <div class="text-left font-bold text-3xl pl-5">
+      <router-link to="/Home">Dashboard</router-link>
     </div>
-    <div class="navButton">
-      <router-link to="/"> Add Items </router-link>
-      <router-link></router-link>
-      <router-link></router-link>
+    <div class="font-medium text-lg pb-2 text-right pr-5">
+      <router-link to="/Edit">Add</router-link>
     </div>
   </div>
-  <router-view />
+  <router-view></router-view>
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      guitarList: [],
+      url: "http://localhost:5000/guitarList",
+      id: "",
+    };
+  },
+  methods: {},
+};
+</script>
 
 <style>
 #app {

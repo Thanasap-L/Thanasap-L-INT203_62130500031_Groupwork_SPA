@@ -4,6 +4,6 @@
 
 @tailwind utilities;
 
-.navBar{
-    @apply
+.navBar {
+    @apply w-full bg-black text-white grid grid-cols-2 py-5
 }
