@@ -7,3 +7,19 @@
 .navBar {
     @apply w-full bg-black text-white grid grid-cols-2 py-5
 }
+
+.input {
+    @apply border border-gray-500 rounded-md  p-1;
+  }
+
+.btn {
+    @apply bg-purple-900 text-white focus:outline-none px-6 py-1 mt-2;
+  }
+
+.editBorder{
+    @apply border border-gray-50 rounded-xl shadow p-2 my-1
+}
+
+.label {
+    @apply py-2 font-bold
+}

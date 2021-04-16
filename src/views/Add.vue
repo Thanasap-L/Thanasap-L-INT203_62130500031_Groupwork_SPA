@@ -1,5 +1,7 @@
 <template>
-  <div class="edit">
-    <h1>This is an edit page</h1>
-  </div>
+  <h1 class="text-center">Add New User</h1>
+  <router-link to="/EditForm"></router-link>
 </template>
+<script>
+  
+</script>

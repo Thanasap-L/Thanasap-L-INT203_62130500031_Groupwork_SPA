@@ -4,7 +4,7 @@
       <router-link to="/Home">Dashboard</router-link>
     </div>
     <div class="font-medium text-lg pb-2 text-right pr-5">
-      <router-link to="/Edit">Add</router-link>
+      <router-link to="/Add">Add User</router-link>
     </div>
   </div>
   <router-view></router-view>
@@ -15,8 +15,8 @@ export default {
   name: "App",
   data() {
     return {
-      guitarList: [],
-      url: "http://localhost:5000/guitarList",
+      employeeList: [],
+      url: "http://localhost:5000/employeeList",
       id: "",
     };
   },

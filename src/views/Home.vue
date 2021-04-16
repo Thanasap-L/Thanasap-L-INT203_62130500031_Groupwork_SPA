@@ -1,99 +1,74 @@
 <template>
-  <!-- This is an example component -->
-
   <div class="overflow-x-auto w-full">
     <!-- Table -->
-    <table
+    <div
       class="mx-auto w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden"
     >
-      <thead class="bg-gray-50">
-        <tr class="text-gray-600 text-left">
-          <th class="font-semibold text-sm uppercase px-6 py-4">Name</th>
-          <th class="font-semibold text-sm uppercase px-6 py-4">Title</th>
-          <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
-            status
-          </th>
-          <th class="font-semibold text-sm uppercase px-6 py-4 text-center">
-            role
-          </th>
-          <th class="font-semibold text-sm uppercase px-6 py-4"></th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-200">
-        <tr>
-          <td class="px-6 py-4">
-            <div class="flex items-center space-x-3">
-              <div class="inline-flex w-10 h-10">
-                <img
-                  class="w-10 h-10 object-cover rounded-full"
-                  alt="User avatar"
-                  src="https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200"
-                />
-              </div>
-              <div>
-                <p class="">Jane Doe</p>
-                <p class="text-gray-500 text-sm font-semibold tracking-wide">
-                  jane20doe@mail.com
-                </p>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-4">
-            <p class="">Patwari at Betul</p>
+      <div class="bg-gray-50 text-gray-600 text-left grid grid-cols-5">
+        <div class="col-span-1 font-semibold text-sm uppercase px-6 py-4">
+          Name
+        </div>
+        <div class="col-span-1 font-semibold text-sm uppercase px-6 py-4">
+          Title
+        </div>
+        <div
+          class="col-span-1 font-semibold text-sm uppercase px-6 py-4 text-center"
+        >
+          status
+        </div>
+        <div
+          class="col-span-1 font-semibold text-sm uppercase px-6 py-4 text-center"
+        >
+          role
+        </div>
+        <div
+          class="col-span-1 font-semibold text-sm uppercase px-6 py-4 text-center"
+        ></div>
+      </div>
+
+      <!-- Information -->
+
+      <div v-for="employee in employeeList" :key="employee.id">
+        <div class="divide-y divide-gray-200 grid grid-cols-5">
+          <!-- Name -->
+          <div class="col-span-1 px-6 py-4">
+            <p>{{ employee.name }}</p>
             <p class="text-gray-500 text-sm font-semibold tracking-wide">
-              Management
+              {{ employee.email }}
             </p>
-          </td>
-          <td class="px-6 py-4 text-center">
-            <span
+          </div>
+
+          <!-- Title -->
+          <div class="col-span-1 px-6 py-4">
+            <p class="">{{ employee.company }}</p>
+            <p class="text-gray-500 text-sm font-semibold tracking-wide">
+              {{ employee.title }}
+            </p>
+          </div>
+
+          <!-- Status -->
+          <div class="col-span-1 px-6 py-4 text-center">
+            <span v-if=""
               class="text-green-800 bg-green-200 font-semibold px-2 rounded-full"
             >
-              Active
+              {{ employee.status }}
             </span>
-          </td>
-          <td class="px-6 py-4 text-center">Admin</td>
-          <td class="px-6 py-4 text-center">
-            <a href="#" class="text-purple-800 hover:underline">Edit</a>
-          </td>
-        </tr>
-        <tr>
-          <td class="px-6 py-4">
-            <div class="flex items-center space-x-3">
-              <div class="inline-flex w-10 h-10">
-                <img
-                  class="w-10 h-10 object-cover rounded-full"
-                  alt="User avatar"
-                  src="https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200"
-                />
-              </div>
-              <div>
-                <p class="">Jane Doe</p>
-                <p class="text-gray-500 text-sm font-semibold tracking-wide">
-                  jane20doe@mail.com
-                </p>
-              </div>
-            </div>
-          </td>
-          <td class="px-6 py-4">
-            <p class="">Patwari at Betul</p>
-            <p class="text-gray-500 text-sm font-semibold tracking-wide">
-              Management
-            </p>
-          </td>
-          <td class="px-6 py-4 text-center">
-            <span
-              class="text-green-800 bg-green-200 font-semibold px-2 rounded-full"
-            >
-              Active
-            </span>
-          </td>
-          <td class="px-6 py-4 text-center">Admin</td>
-          <td class="px-6 py-4 text-center">
-            <a href="#" class="text-purple-800 hover:underline">Edit</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
+
+          <!-- Role -->
+          <div class="col-span-1 px-6 py-4 text-center">
+            {{ employee.role }}
+          </div>
+
+          <!-- Edit -->
+          <div
+            class="col-span-1 px-6 py-4 text-center text-purple-800 hover:underline"
+          >
+            <router-link to="/EditForm">Edit</router-link>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -101,20 +76,12 @@ export default {
   name: "App",
   data() {
     return {
-      guitarList: [],
-      url: "http://localhost:5000/guitarList",
-      id: "",
-      gen: "",
-      brand: "",
-      price: "",
-      type: "",
-      color: "",
-      category: "",
-      isEdit: false,
+      employeeList: [],
+      url: "http://localhost:5000/employeeList",
     };
   },
   methods: {
-    async getGuitarResult() {
+    async getEmpResult() {
       try {
         const res = await fetch(this.url);
         const data = res.json();
@@ -123,9 +90,9 @@ export default {
         console.log(`Counld not get! ${error}`);
       }
     },
-    // showData(oldGuitar) {
-
-    // }
+  },
+  async created() {
+    this.employeeList = await this.getEmpResult();
   },
 };
 </script>
