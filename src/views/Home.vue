@@ -48,11 +48,19 @@
 
           <!-- Status -->
           <div class="col-span-1 px-6 py-4 text-center">
-            <span v-if=""
+            <!-- <div v-if="employee.status === Active"> -->
+            <span
               class="text-green-800 bg-green-200 font-semibold px-2 rounded-full"
             >
+              {{ employee.status }}</span
+            >
+            <!-- </div> -->
+            <!-- <div v-else>
+              <span
+                class="text-yellow-700 bg-yellow-400 font-semibold px-2 rounded-full"
+              ></span>
               {{ employee.status }}
-            </span>
+            </div> -->
           </div>
 
           <!-- Role -->
@@ -61,10 +69,15 @@
           </div>
 
           <!-- Edit -->
-          <div
-            class="col-span-1 px-6 py-4 text-center text-purple-800 hover:underline"
-          >
-            <router-link to="/EditForm">Edit</router-link>
+          <div class="col-span-1 px-6 py-4 text-center">
+            <div class="grid grid-cols-2">
+              <div class="col-span-1 text-purple-800 hover:underline">
+                <router-link to="/Edit">Edit</router-link>
+              </div>
+              <div class="col-span-1 text-red-700 hover:underline">
+                <delte-emp>Delete</delte-emp>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -72,8 +85,12 @@
   </div>
 </template>
 <script>
+import DelteEmp from "../components/DeleteEmp.vue";
 export default {
-  name: "App",
+  name: "Home",
+  components: {
+    DelteEmp,
+  },
   data() {
     return {
       employeeList: [],

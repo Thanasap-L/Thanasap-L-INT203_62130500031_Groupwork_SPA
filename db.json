@@ -15,8 +15,8 @@
             "email": "example@mail.com",
             "company": "Webb at Square",
             "title": "Fontend",
-            "status": "Active",
-            "role": "User"
+            "status": "Busy",
+            "role": "Infastructure"
         }
     ]
 }
