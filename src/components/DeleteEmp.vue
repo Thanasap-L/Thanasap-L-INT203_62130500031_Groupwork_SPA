@@ -1,28 +1,28 @@
 <template>
-    <div @click="deleteEmployee()"></div>
+  <div @click="deleteEmp()"><slot></slot></div>
 </template>
 <script>
 export default {
-    name: 'DeleteEmp',
-data(){
-    return{
-        employeeList: [],
-        url: "http://localhost:5000/employeeList",     
-    }
-},
-methods: {
-    async deleteAccount(deleteId) {
+  name: "DeleteEmp",
+  props: ["id"],
+  data() {
+    return {
+      url: "http://localhost:5000/employeeList",
+    };
+  },
+  methods: {
+    async deleteEmp() {
       try {
-        await fetch(`${this.url}/${deleteId}`, {
+        const res = await fetch(`${this.url}/${this.id}`, {
           method: "DELETE",
         });
-        this.employeeList = this.employeeList.filter(
-          (employee) => employee.id !== deleteId
-        );
+        if (res.ok) {
+          this.$emit("delete-emp", this.id);
+        }
       } catch (error) {
         console.log(`Could not delete! ${error}`);
       }
-    }
-}
-}
+    },
+  },
+};
 </script>

@@ -1,22 +1,31 @@
 {
-    "employeeList": [
-        {
-            "id": 1,
-            "name": "Jane Doe",
-            "email": "jane20doe@mail.com",
-            "company": "Patwari at Betul",
-            "title": "Backend",
-            "status": "Active",
-            "role": "Admin"
-        },
-        {
-            "id": 2,
-            "name": "Bobby Dump",
-            "email": "example@mail.com",
-            "company": "Webb at Square",
-            "title": "Fontend",
-            "status": "Busy",
-            "role": "Infastructure"
-        }
-    ]
+  "employeeList": [
+    {
+      "name": "Jane Doe",
+      "email": "jane20doe@mail.com",
+      "company": "Patwari at Betul",
+      "title": "Arabia",
+      "role": "Sleeping",
+      "status": "Active",
+      "id": 1
+    },
+    {
+      "name": "Bobby Dump",
+      "email": "example@mail.com",
+      "company": "Webb at Square",
+      "title": "Frontend",
+      "role": "Running",
+      "status": "Busy",
+      "id": 2
+    },
+    {
+      "name": "Badpiggie Likebecon",
+      "email": "badpiggie.becon@gmail.com",
+      "company": "KMUTT",
+      "title": "FF",
+      "role": "Sleeping",
+      "status": "Busy",
+      "id": 16
+    }
+  ]
 }

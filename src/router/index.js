@@ -2,8 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Add from '../views/Add.vue'
 import Edit from '../views/Edit.vue'
-import EditForm from '../components/EditForm.vue'
-import DeleteEmp from '../components/DeleteEmp.vue'
 
 const routes = [
   {
@@ -20,16 +18,6 @@ const routes = [
     path: '/Edit',
     name: 'Edit',
     component: Edit
-  },
-  {
-    path: '/EditForm',
-    name: 'EditForm',
-    component: EditForm
-  },
-  {
-    path: '/DeleteEmp',
-    name: 'DeleteEmp',
-    component: DeleteEmp
   },
 ]
 

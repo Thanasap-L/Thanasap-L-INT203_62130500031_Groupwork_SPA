@@ -9,7 +9,7 @@
         :class="{ 'bg-red-50': invalidNameInput }"
         id="name"
         type="text"
-        v-model.trim="enteredName"
+        v-model.trim="newEmp.name"
         @blur="validateName"
       />
 
@@ -25,7 +25,7 @@
         :class="{ 'bg-red-50': invalidEmailInput }"
         id="email"
         type="text"
-        v-model.trim="enteredEmail"
+        v-model.trim="newEmp.email"
         @blur="validateEmail"
       />
       <p v-if="invalidEmailInput" class="text-red-500">
@@ -40,7 +40,7 @@
         :class="{ 'bg-red-50': invalidCompanyInput }"
         id="company"
         type="text"
-        v-model.trim="enteredCompany"
+        v-model.trim="newEmp.company"
         @blur="validateCompany"
       />
       <p v-if="invalidCompanyInput" class="text-red-500">
@@ -55,13 +55,23 @@
         :class="{ 'bg-red-50': invalidTitleInput }"
         id="title"
         type="text"
-        v-model.trim="enteredTitle"
+        v-model.trim="newEmp.title"
         @blur="validateTitle"
       />
 
-      <p v-if="invalidNameTitle" class="text-red-500">
-        Please enter your Title!
-      </p>
+      <label class="label" for="role"
+        ><span class="text-red-600">*</span> Role</label
+      >
+      <input
+        class="input"
+        :class="{ 'bg-red-50': invalidRoleInput }"
+        id="role"
+        type="text"
+        v-model.trim="newEmp.role"
+        @blur="validateRole"
+      />
+
+      <p v-if="invalidNameRole" class="text-red-500">Please enter your Role!</p>
 
       <h2 class="font-bold"><span class="text-red-600">*</span> Status</h2>
       <div>
@@ -69,8 +79,9 @@
           type="radio"
           name="status"
           id="status-active"
-          value="active"
-          v-model="status"
+          value="Active"
+          v-model="newEmp.status"
+          :checked="newEmp.status == 'Active'"
         />
         <label class="label" for="status-active">Active</label>
       </div>
@@ -80,8 +91,9 @@
           type="radio"
           name="status"
           id="status-busy"
-          value="busy"
-          v-model="status"
+          value="Busy"
+          v-model="newEmp.status"
+          :checked="newEmp.status == 'Busy'"
         />
         <label class="label" for="status-busy">Busy</label>
       </div>
@@ -96,71 +108,100 @@
 <script>
 export default {
   name: "EditForm",
+  props: ["employee", 'isEdit'],
   data() {
     return {
-      url: "http://localhost:5000/empResults",
-      employeeList: [],
-      isEdit: false,
-      editId: "",
-      enteredName: "",
-      enteredEmail: "",
-      enteredTitle: "",
-      enteredCompany: "",
-      status: null,
+      url: "http://localhost:5000/employeeList",
+      newEmp: this.employee,
       invalidNameInput: false,
       invalidEmailInput: false,
       invalidCompanyInput: false,
       invalidTitleInput: false,
+      invalidRoleInput: false,
       invalidStatusInput: false,
     };
   },
   methods: {
     submitForm() {
-      this.invalidNameInput = this.enteredName === "" ? true : false;
-      this.invalidEmailInput = this.enteredEmail === "" ? true : false;
-      this.invalidCompanyInput = this.enteredCompany === "" ? true : false;
-      this.invalidTitleInput = this.enteredTitle === "" ? true : false;
-      this.invalidstatusInput = this.status === null ? true : false;
-
-      console.log(`name value: ${this.enteredName}`);
-      console.log(`email value: ${this.enteredEmail}`);
-      console.log(`company value: ${this.enteredcompany}`);
-      console.log(`title value: ${this.enteredTitle}`);
-      console.log(`status value: ${this.status}`);
-      console.log(`invalid name: ${this.invalidNameInput}`);
-      console.log(`invalid email: ${this.invalidEmailInput}`);
-      console.log(`invalid company: ${this.invalidCompanyInput}`);
-      console.log(`invalid title: ${this.invalidTitleInput}`);
-      console.log(`invalid status: ${this.invalidStatusInput}`);
+      this.invalidNameInput = this.employee.name === "" ? true : false;
+      this.invalidEmailInput = this.employee.email === "" ? true : false;
+      this.invalidCompanyInput = this.employee.company === "" ? true : false;
+      this.invalidTitleInput = this.employee.title === "" ? true : false;
+      this.invalidRoleInput = this.employee.role === "" ? true : false;
+      this.invalidstatusInput = this.employee.status === null ? true : false;
 
       if (
         !this.invalidNameInput &&
         !this.invalidEmailInput &&
         !this.invalidCompanyInput &&
         !this.invalidTitleInput &&
+        !this.invalidRoleInput &&
         !this.invalidStatusInput
       ) {
         if (this.isEdit) {
           this.editForm({
-            id: this.editId,
-            name: this.enteredName,
-            email: this.enteredEmail,
-            company: this.enteredCompany,
-            title: this.enteredTitle,
-            status: this.status,
+            id: this.employee.id,
+            name: this.employee.name,
+            email: this.employee.email,
+            company: this.employee.company,
+            title: this.employee.title,
+            role: this.employee.role,
+            status: this.employee.status,
           });
         } else {
-          this.addNewemp({
-            name: this.enteredName,
-            email: this.enteredEmail,
-            company: this.enteredCompany,
-            title: this.enteredTitle,
-            status: this.status,
+          this.addNewEmp({
+            name: this.employee.name,
+            email: this.employee.email,
+            company: this.employee.company,
+            title: this.employee.title,
+            role: this.employee.role,
+            status: this.employee.status,
           });
         }
       }
     },
-    
+    async editForm(editingForm) {
+      try {
+        await fetch(`${this.url}/${editingForm.id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            name: editingForm.name,
+            email: editingForm.email,
+            company: editingForm.company,
+            title: editingForm.title,
+            role: editingForm.role,
+            status: editingForm.status,
+          }),
+        });
+        this.$emit("done-form");
+      } catch (error) {
+        console.log(`Could not edited! ${error}`);
+      }
+    },
+    async addNewEmp(newUser) {
+      try {
+        await fetch(this.url, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            name: newUser.name,
+            email: newUser.email,
+            company: newUser.company,
+            title: newUser.title,
+            role: newUser.role,
+            status: newUser.status, 
+          }),
+        });
+        window.location.replace("/Home");
+      } catch (error) {
+        console.log(`Could not save ${error}`);
+      }
+    },
   },
 };
 </script>
