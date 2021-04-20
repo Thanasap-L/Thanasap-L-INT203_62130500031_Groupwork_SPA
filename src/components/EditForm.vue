@@ -1,114 +1,129 @@
 <template>
-  <form @submit.prevent="submitForm">
+  <form @submit.prevent="submitForm" class="grid grid-row-3">
     <div class="editBorder">
-      <label class="label" for="name"
-        ><span class="text-red-600">*</span> Your Name</label
-      >
-      <input
-        class="input"
-        :class="{ 'bg-red-50': invalidNameInput }"
-        id="name"
-        type="text"
-        v-model.trim="newEmp.name"
-        @blur="validateName"
-      />
-
-      <p v-if="invalidNameInput" class="text-red-500">
-        Please enter your Name!
-      </p>
-
-      <label class="label" for="email"
-        ><span class="text-red-600">*</span> Email</label
-      >
-      <input
-        class="input"
-        :class="{ 'bg-red-50': invalidEmailInput }"
-        id="email"
-        type="text"
-        v-model.trim="newEmp.email"
-        @blur="validateEmail"
-      />
-      <p v-if="invalidEmailInput" class="text-red-500">
-        Please enter your Email!
-      </p>
-
-      <label class="label" for="company"
-        ><span class="text-red-600">*</span> Company</label
-      >
-      <input
-        class="input"
-        :class="{ 'bg-red-50': invalidCompanyInput }"
-        id="company"
-        type="text"
-        v-model.trim="newEmp.company"
-        @blur="validateCompany"
-      />
-      <p v-if="invalidCompanyInput" class="text-red-500">
-        Please enter your Company!
-      </p>
-
-      <label class="label" for="title"
-        ><span class="text-red-600">*</span> Title</label
-      >
-      <input
-        class="input"
-        :class="{ 'bg-red-50': invalidTitleInput }"
-        id="title"
-        type="text"
-        v-model.trim="newEmp.title"
-        @blur="validateTitle"
-      />
-
-      <label class="label" for="role"
-        ><span class="text-red-600">*</span> Role</label
-      >
-      <input
-        class="input"
-        :class="{ 'bg-red-50': invalidRoleInput }"
-        id="role"
-        type="text"
-        v-model.trim="newEmp.role"
-        @blur="validateRole"
-      />
-
-      <p v-if="invalidNameRole" class="text-red-500">Please enter your Role!</p>
-
-      <h2 class="font-bold"><span class="text-red-600">*</span> Status</h2>
-      <div>
+      <div class="row-span-1 py-2">
+        <label class="label" for="name"
+          ><span class="text-red-600">*</span> Your Name</label
+        >
         <input
-          type="radio"
-          name="status"
-          id="status-active"
-          value="Active"
-          v-model="newEmp.status"
-          :checked="newEmp.status == 'Active'"
+          class="input"
+          :class="{ 'bg-red-50': invalidNameInput }"
+          id="name"
+          type="text"
+          v-model.trim="newEmp.name"
+          @blur="validateName"
         />
-        <label class="label" for="status-active">Active</label>
+
+        <p v-if="invalidNameInput" class="text-red-500">
+          Please enter your Name!
+        </p>
+
+        <label class="label" for="email"
+          ><span class="text-red-600">*</span> Email</label
+        >
+        <input
+          class="input"
+          :class="{ 'bg-red-50': invalidEmailInput }"
+          id="email"
+          type="text"
+          v-model.trim="newEmp.email"
+          @blur="validateEmail"
+        />
+        <p v-if="invalidEmailInput" class="text-red-500">
+          Please enter your Email!
+        </p>
       </div>
 
-      <div>
+      <div class="row-span-1 py-2">
+        <label class="label" for="company"
+          ><span class="text-red-600">*</span> Company</label
+        >
         <input
-          type="radio"
-          name="status"
-          id="status-busy"
-          value="Busy"
-          v-model="newEmp.status"
-          :checked="newEmp.status == 'Busy'"
+          class="input"
+          :class="{ 'bg-red-50': invalidCompanyInput }"
+          id="company"
+          type="text"
+          v-model.trim="newEmp.company"
+          @blur="validateCompany"
         />
-        <label class="label" for="status-busy">Busy</label>
+        <p v-if="invalidCompanyInput" class="text-red-500">
+          Please enter your Company!
+        </p>
+
+        <label class="label" for="title"
+          ><span class="text-red-600">*</span> Title</label
+        >
+        <input
+          class="input"
+          :class="{ 'bg-red-50': invalidTitleInput }"
+          id="title"
+          type="text"
+          v-model.trim="newEmp.title"
+          @blur="validateTitle"
+        />
+        <p v-if="invalidTitleInput" class="text-red-500">
+          Please enter your Title!
+        </p>
       </div>
-      <p v-if="invalidStatusInput" class="text-red-500">
-        Please choose your Status!
-      </p>
+
+      <div class="row-span-1 py-2 grid grid-cols-2">
+        <div class="col-span-1 ml-auto">
+        <label class="label" for="role"
+          ><span class="text-red-600">*</span> Role</label
+        >
+        <input
+          class="input"
+          :class="{ 'bg-red-50': invalidRoleInput }"
+          id="role"
+          type="text"
+          v-model.trim="newEmp.role"
+          @blur="validateRole"
+        />
+        <p v-if="invalidNameRole" class="text-red-500">
+          Please enter your Role!
+        </p>
+        </div>
+        <div class="col-span-1 mr-auto">
+        <h2 class="font-bold p-4">
+          <span class="text-red-600">*</span> Status
+        </h2>
+        <div class="col-span-1">
+          <input
+            type="radio"
+            name="status"
+            id="status-active"
+            value="Active"
+            v-model="newEmp.status"
+            :checked="newEmp.status == 'Active'"
+          />
+          <label class="label" for="status-active">Active</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            name="status"
+            id="status-busy"
+            value="Busy"
+            v-model="newEmp.status"
+            :checked="newEmp.status == 'Busy'"
+          />
+          <label class="label" for="status-busy">Busy</label>
+        </div>
+        <p v-if="invalidStatusInput" class="text-red-500">
+          Please choose your Status!
+        </p>
+        </div>
+      </div>
+      <button class="btn">Submit</button>
     </div>
-    <button class="btn">Submit</button>
   </form>
 </template>
 
 <script>
 export default {
   name: "EditForm",
-  props: ["employee", 'isEdit'],
+  props: ["employee", "isEdit"],
   data() {
     return {
       url: "http://localhost:5000/employeeList",
@@ -194,7 +209,7 @@ export default {
             company: newUser.company,
             title: newUser.title,
             role: newUser.role,
-            status: newUser.status, 
+            status: newUser.status,
           }),
         });
         window.location.replace("/Home");
